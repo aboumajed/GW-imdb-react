@@ -1,16 +1,78 @@
-# React + Vite
+#Ali_ElZein
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# IMDB Movie Explorer
 
-Currently, two official plugins are available:
+A React application for searching and exploring movies using the OMDb API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Search movies by title
+- View movie details (poster, plot, actors, rating, etc.)
+- Track recent movies (last 10 viewed)
+- State management with Redux
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- React Router
+- React Router DOM
+- Redux Toolkit
+- React Redux
+- CSS Modules
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Get an OMDb API Key
+
+1. Go to https://www.omdbapi.com/apikey.aspx
+2. Sign up for a free key
+3. Activate via email
+
+### 2. Add Your API Key
+
+Replace `YOUR_API_KEY` in:
+- `src/pages/Search.jsx`
+- `src/pages/MovieDetails.jsx`
+
+### 3. Install & Run
+
+```bash
+npm install
+npm start
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── Sidebar.jsx
+│   └── MovieCard.jsx
+├── pages/
+│   ├── Search.jsx
+│   ├── MovieDetails.jsx
+│   └── RecentMovies.jsx
+├── redux/
+│   ├── store.js
+│   └── recentMoviesSlice.js
+├── App.jsx
+├── index.css
+└── main.jsx
+```
+
+## Redux Usage
+
+Redux is used for the **Recent Movies** feature:
+
+- `recentMoviesSlice.js` - Contains actions: `addMovie`, `clearMovies`
+- State is persisted to localStorage
+- Components use `useSelector` to read state and `useDispatch` to update
+
+Example:
+```javascript
+// Reading state
+const recentMovies = useSelector((state) => state.recentMovies.movies);
+
+// Dispatching actions
+dispatch(addMovie({ imdbID, Title, Year, Poster }));
+dispatch(clearMovies());
+```

@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.clearButton {
+  padding: 8px 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #cc0000;
+  cursor: pointer;
+}
+
+.clearButton:hover {
+  background: #ffe0e0;
+  border-color: #cc0000;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
