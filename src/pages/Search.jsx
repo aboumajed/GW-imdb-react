@@ -6,7 +6,7 @@ import styles from './Search.module.css';
 const API_KEY = import.meta.env.VITE_OMDB_KEY;
 const API_URL = 'https://www.omdbapi.com/';
 
-function SearchPage() {
+function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -142,4 +142,4 @@ function SearchPage() {
   );
 }
 
-export default SearchPage;
+export default Search;
